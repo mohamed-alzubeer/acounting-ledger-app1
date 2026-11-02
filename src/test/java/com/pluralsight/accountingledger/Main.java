@@ -1,16 +1,25 @@
 package com.pluralsight.accountingledger;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Accounting Ledger Application");
 
-        //create a transaction object
-        Transaction t = new Transaction("2023 ", "10:13:25 ", "keyboard ", "Amazon ", -89.50);
-        System.out.println("Transaction created successfully!");
-        System.out.println(t);
-        System.out.println();
+        // I crate the scanner class to read the menu
+        Scanner sc = new Scanner(System.in);
+        // as long as running is true, the menu keep appearing
+        boolean running = true;{
+
+            System.out.println("\n<<<<==========Acounting Leadger==========>>>>");
+            System.out.println("D) Add Deposit");
+            System.out.println("P) Make Payment");
+            System.out.println("L) Ledger");
+            System.out.println("X) Exit");
+            System.out.println("Choose an option: ");
+
+        }
+
 
         //create ArrayList Transactions to access to file manger
         ArrayList<Transaction> transactions = FileManger.loadTransactions();
