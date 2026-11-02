@@ -128,7 +128,17 @@ public class Main {
                                 break;
 
                             case "P":
-                                System.out.println("Payments selected");
+
+                                ArrayList<Transaction> payments =
+                                        FileManger.loadTransactions();
+
+                                for (int i = payments.size() - 1; i >= 0; i--) {
+
+                                    if (payments.get(i).getAmount() < 0) {
+                                        System.out.println(payments.get(i));
+                                    }
+                                }
+
                                 break;
 
                             case "R":
