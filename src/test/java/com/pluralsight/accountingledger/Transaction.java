@@ -22,7 +22,7 @@ public class Transaction {
 
     }
 
-    // I am using getters because I can not access directly because they are in private. and getters allows other classes to read private data
+    // I am using getters/stters because I can not access directly because they are in private. and getters allows other classes to read private data
 
 
     public String getDate() {
@@ -75,4 +75,6 @@ public class Transaction {
                 ", amount=" + amount +
                 '}';
     }
+
+
 }

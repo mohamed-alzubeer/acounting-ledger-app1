@@ -8,5 +8,8 @@ public class Main {
         Transaction t = new Transaction("2023 ", "10:13:25 ", "keyboard ", "Amazon ", -89.50);
         System.out.println("Transaction created successfully!");
         System.out.println(t);
+        System.out.println();
+
+        //
     }
 }
