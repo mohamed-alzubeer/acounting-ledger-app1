@@ -12,6 +12,7 @@ public class Main {
         boolean running = true;{
 
             System.out.println("\n<<<<==========Acounting Leadger==========>>>>");
+            System.out.println("===HOME SCREEN===");
             System.out.println("D) Add Deposit");
             System.out.println("P) Make Payment");
             System.out.println("L) Ledger");
