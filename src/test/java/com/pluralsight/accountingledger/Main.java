@@ -2,6 +2,7 @@ package com.pluralsight.accountingledger;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -80,9 +81,71 @@ public class Main {
 
 
                     break;
+
+                    //create the ledger ment
+
                 case "L":
-                    System.out.println("Ledger selected");
+
+                    boolean ledgerRunning = true;
+
+                    while (ledgerRunning) {
+
+                        System.out.println("\n=== LEDGER ===");
+                        System.out.println("A) All");
+                        System.out.println("D) Deposits");
+                        System.out.println("P) Payments");
+                        System.out.println("R) Reports");
+                        System.out.println("H) Home");
+                        System.out.print("Choose an option: ");
+
+                        String ledgerChoice = scanner.nextLine().toUpperCase();
+
+                        switch (ledgerChoice) {
+
+                            case "A":
+                                   //loads all transactions from the CSV file
+                                ArrayList<Transaction> transactions =
+                                        FileManger.loadTransactions();
+                                // loop through every transaction and print it and this loop will show my the newest transaction appears first
+
+                                for (int i = transactions.size() - 1; i >= 0; i--) {
+                                    System.out.println(transactions.get(i));
+                                }
+
+                                break;
+                            case "D":
+
+                                ArrayList<Transaction> deposits =
+                                        FileManger.loadTransactions();
+
+                                for (int i = deposits.size() - 1; i >= 0; i--) { // this loop will load all transactions
+
+                                    if (deposits.get(i).getAmount() > 0) {
+                                        System.out.println(deposits.get(i));
+                                    }
+                                }
+
+                                break;
+
+                            case "P":
+                                System.out.println("Payments selected");
+                                break;
+
+                            case "R":
+                                System.out.println("Reports selected");
+                                break;
+
+                            case "H":
+                                ledgerRunning = false;
+                                break;
+
+                            default:
+                                System.out.println("Invalid option");
+                        }
+                    }
+
                     break;
+
                 case "X":
                     running = false; // when running false , exit the program
                     System.out.println("GodBay!");
