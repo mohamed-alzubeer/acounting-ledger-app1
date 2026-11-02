@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         // I crate the scanner class to read the menu
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         // as long as running is true, the menu keep appearing
         boolean running = true;{
 
@@ -18,14 +18,29 @@ public class Main {
             System.out.println("X) Exit");
             System.out.println("Choose an option: ");
 
+            //I am using switch/case and pass the choice to make the menu dispay everytime
+            String choice = scanner.nextLine(); // to read the next line as string
+            switch (choice) {
+                case "D":
+                    System.out.println("Deposit selected");
+                    break;
+                    case "P":
+                        System.out.println("Payment selected");
+                        break;
+                        case "L":
+                            System.out.println("Ledger selected");
+                            break;
+                            case "X":
+                                running = false; // when running false , exit the program
+                                System.out.println("GodBay!");
+                                break;
+                                default:
+                                    System.out.println("Invalid option");
+            }
+                  scanner.close(); // close the scanner
         }
 
 
-        //create ArrayList Transactions to access to file manger
-        ArrayList<Transaction> transactions = FileManger.loadTransactions();
-        // I use for loop, means for each transaction in transactions give me transaction at time
-        for (Transaction transaction : transactions){
-            System.out.println(transaction);
-        }
+
     }
 }
