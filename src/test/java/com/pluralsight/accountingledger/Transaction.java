@@ -77,4 +77,6 @@ public class Transaction {
     }
 
 
+    public void saveTransaction(Transaction transaction) {
+    }
 }

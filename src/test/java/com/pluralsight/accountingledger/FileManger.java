@@ -3,6 +3,9 @@ package com.pluralsight.accountingledger;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 
 public class FileManger {
 
@@ -43,4 +46,24 @@ public class FileManger {
     }
 
 
+    public static void saveTransaction(Transaction transaction) {
+
+        try {
+
+            // I want to write to file by using BufferedWriter
+            BufferedWriter writer = new BufferedWriter(new FileWriter("transaction.csv", true));
+            writer.write(
+                    transaction.getDate() + "|" +
+                            transaction.getTime() + "|" +
+                            transaction.getDescription() + "|" +
+                            transaction.getVendor() + "|" +
+                            transaction.getAmount());
+
+            writer.newLine(); // to read the new line
+            writer.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
