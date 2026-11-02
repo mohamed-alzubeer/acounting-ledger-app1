@@ -53,7 +53,32 @@ public class Main {
                     break;
 
                 case "P":
-                    System.out.println("Payment selected");
+
+                    System.out.println("Enter description: ");
+                    String paymentDescription = scanner.nextLine();
+
+                    System.out.println("Enter vendor: ");
+                    String paymentVendor = scanner.nextLine();
+
+                    System.out.println("Enter amount: ");
+                    double paymentAmount = Double.parseDouble(scanner.nextLine());
+
+                    paymentAmount = -Math.abs(paymentAmount); // this will make all payments are negative as required
+
+
+                    Transaction payment = new Transaction(
+                            LocalDate.now().toString(),
+                            LocalTime.now().withNano(0).toString(),
+                            paymentDescription,
+                            paymentVendor,
+                            paymentAmount
+                    );
+
+                    FileManger.saveTransaction(payment);
+
+                    System.out.println("Payment saved!");
+
+
                     break;
                 case "L":
                     System.out.println("Ledger selected");
