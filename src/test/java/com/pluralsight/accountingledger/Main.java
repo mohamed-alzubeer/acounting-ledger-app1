@@ -169,7 +169,17 @@ public class Main {
                                             System.out.println("Previous Year");
                                             break;
                                             case "5":
-                                                System.out.println("Search by Vendor");
+                                                System.out.println("Enter Vendor name: ");
+                                                String searchVendor = scanner.nextLine();
+
+                                                ArrayList<Transaction> vendorTransactions = FileManger.loadTransactions();
+
+                                                for(int i = vendorTransactions.size() - 1; i >= 0; i--) {
+                                                    if(vendorTransactions.get(i).getVendor().equals(searchVendor)) {
+                                                        System.out.println(vendorTransactions.get(i));
+                                                    }
+
+                                                }
                                                 break;
                                                 case "0":
                                                     reportsRunning = false;  // the program exits the reports menu and returns to previous menu
