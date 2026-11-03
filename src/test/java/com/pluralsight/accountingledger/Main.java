@@ -142,9 +142,41 @@ public class Main {
                                 break;
 
                             case "R":
-                                System.out.println("Reports selected");
-                                break;
+                                boolean reportsRunning = true; // this make the report running if is true and stop/ exit if false
+                                while (reportsRunning) {
+                                    System.out.println("\n=== REPORTS ===");
+                                    System.out.println("1) Month To Date");
+                                    System.out.println("2) Previous Month");
+                                    System.out.println("3) Year To Date");
+                                    System.out.println("4) Previous Year");
+                                    System.out.println("5) Search by Vendor");
+                                    System.out.println("0) Back");
+                                    System.out.print("Choose an option: ");
 
+                                    //read the next line
+                                    String  reportChoice = scanner.nextLine();
+                                    switch (reportChoice) {
+                                        case "1":
+                                            System.out.println("Month To Date");
+                                            break;
+                                            case "2":
+                                                System.out.println("Previous Month");
+                                                break;
+                                                case "3":
+                                                    System.out.println("Year To Date");
+                                                    break;
+                                        case "4":
+                                            System.out.println("Previous Year");
+                                            break;
+                                            case "5":
+                                                System.out.println("Search by Vendor");
+                                                break;
+                                                case "0":
+                                                    reportsRunning = false;  // the program exits the reports menu and returns to previous menu
+                                        break;
+
+                                    }
+                                }
                             case "H":
                                 ledgerRunning = false;
                                 break;
