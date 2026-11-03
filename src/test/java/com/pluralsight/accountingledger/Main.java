@@ -142,6 +142,7 @@ public class Main {
                                 break;
 
                             case "R":
+
                                 boolean reportsRunning = true; // this make the report running if is true and stop/ exit if false
                                 while (reportsRunning) {
                                     System.out.println("\n=== REPORTS ===");
@@ -214,6 +215,7 @@ public class Main {
                                             //I use minsYears(1) to calculate the previous year dynamically,then compared each transactions year with that value.
                                             //and this allows the report to automatically work every year without needing code change
                                             // get previous  report
+
                                             ArrayList<Transaction> previousYearTransactions =  FileManger.loadTransactions();
                                             //get the previous year
                                             int perviousYear = LocalDate.now().minusYears(1).getYear();
@@ -226,8 +228,10 @@ public class Main {
                                                     System.out.println(previousYearTransactions.get(i));
                                                 }
                                             }
+                                            boolean found = false;
+                                            System.out.println("No transactions found!");
                                             break;
-
+                                            // in case 5 - search by vendor
                                                case "5":
                                                 System.out.println("Enter Vendor name: ");
                                                 String searchVendor = scanner.nextLine();

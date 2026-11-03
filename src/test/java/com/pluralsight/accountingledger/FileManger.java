@@ -11,10 +11,10 @@ public class FileManger {
 
     public static ArrayList<Transaction> loadTransactions(){
 
-        //create ArrayList for Transaction to stoe all transaction we read
+        //create ArrayList for Transaction to stoe all transaction
         ArrayList<Transaction> transactions = new ArrayList<>();
         //using BufferedReader to read the file
-        //using try/catch to catch the excepations
+        //using try/catch to catch the exceptions
         try {
 
             BufferedReader reader = new BufferedReader(new FileReader("transaction.csv"));
