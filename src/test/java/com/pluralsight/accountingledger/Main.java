@@ -157,7 +157,17 @@ public class Main {
                                     String  reportChoice = scanner.nextLine();
                                     switch (reportChoice) {
                                         case "1":
-                                            System.out.println("Month To Date");
+                                            //I created a month to date report that loads all transaction from the CSV file and displays only the transactions that belong to the current month and current year.
+                                            //I used LocalDate.parse to convert the transaction date stored as String  into localData object.
+                                            // I used transactionData.getmonth to check the same month
+                                            ArrayList<Transaction>monthTransactions = FileManger.loadTransactions();
+                                            LocalDate today = LocalDate.now();
+                                            for(int i = monthTransactions.size() - 1; i >= 0; i--) {
+                                                LocalDate transactionDate = LocalDate.parse(monthTransactions.get(i).getDate());
+                                                if(transactionDate.getMonth() == today.getMonth() && transactionDate.getYear() == today.getYear()) {
+                                                    System.out.println(monthTransactions.get(i));
+                                                }
+                                            }
                                             break;
                                             case "2":
                                                 System.out.println("Previous Month");
@@ -181,6 +191,7 @@ public class Main {
 
                                                 }
                                                 break;
+
                                                 case "0":
                                                     reportsRunning = false;  // the program exits the reports menu and returns to previous menu
                                         break;
