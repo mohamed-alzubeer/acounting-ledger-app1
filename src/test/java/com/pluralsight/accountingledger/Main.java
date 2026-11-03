@@ -169,12 +169,29 @@ public class Main {
                                                 }
                                             }
                                             break;
-                                            case "2":
-                                                System.out.println("Previous Month");
-                                                break;
-                                                case "3":
-                                                    System.out.println("Year To Date");
-                                                    break;
+                                        case "2":
+                                            //load alll transaction from transactions.csv file into an ArrayList so I can loop through them and apply filters
+                                            ArrayList<Transaction> previousMonthTransactions =
+                                                    FileManger.loadTransactions();
+                                           //I used LocalData.now() to get the current date from the system
+                                            LocalDate today1 = LocalDate.now();
+                                            //I calculate previous Month and I use minusMonth(1) to get the previous month
+                                            LocalDate previousMonth = today1.minusMonths(1);
+                                           // I use a reverse loop because the project requires displaying the newest transactions first.
+                                            for (int i = previousMonthTransactions.size() - 1; i >= 0; i--) {
+                                              // I use this to convert string data to LocalDate
+                                                LocalDate transactionDate =
+                                                        LocalDate.parse(
+                                                                previousMonthTransactions.get(i).getDate());
+                                               //I checked the previous Month
+                                                if (transactionDate.getMonth() == previousMonth.getMonth()
+                                                        && transactionDate.getYear() == previousMonth.getYear()) {
+                                              //Display only transactions from the previous month.
+                                                    System.out.println(previousMonthTransactions.get(i));
+                                                }
+                                            }
+
+                                            break;
                                         case "4":
                                             System.out.println("Previous Year");
                                             break;
