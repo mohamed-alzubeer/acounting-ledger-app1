@@ -188,10 +188,28 @@ public class Main {
                                                         && transactionDate.getYear() == previousMonth.getYear()) {
                                               //Display only transactions from the previous month.
                                                     System.out.println(previousMonthTransactions.get(i));
+
                                                 }
                                             }
+                                            boolean foundPreviousMonth = false;
+                                            System.out.println("No transactions found!");
 
                                             break;
+
+                                            // get yeae to date
+                                        case "3":
+                                            //in case 3 , I used LocalDate.now() to get the current year and compared it with each transactions year using getYear().
+                                            //If both years match, the transaction is included in the Year-To-Date report
+                                            ArrayList<Transaction> yearTransactions = FileManger.loadTransactions();
+                                            LocalDate currentData = LocalDate.now();
+                                            for(int i = yearTransactions.size() - 1; i >= 0; i--) {
+                                                LocalDate transactionDate = LocalDate.parse(yearTransactions.get(i).getDate());
+                                                if(transactionDate.getYear() == currentData.getYear()) {
+                                                    System.out.println(yearTransactions.get(i));
+                                                }
+                                            }
+                                            break;
+
                                         case "4":
                                             System.out.println("Previous Year");
                                             break;
