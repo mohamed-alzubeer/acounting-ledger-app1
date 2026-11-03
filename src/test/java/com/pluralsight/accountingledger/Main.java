@@ -211,9 +211,24 @@ public class Main {
                                             break;
 
                                         case "4":
-                                            System.out.println("Previous Year");
+                                            //I use minsYears(1) to calculate the previous year dynamically,then compared each transactions year with that value.
+                                            //and this allows the report to automatically work every year without needing code change
+                                            // get previous  report
+                                            ArrayList<Transaction> previousYearTransactions =  FileManger.loadTransactions();
+                                            //get the previous year
+                                            int perviousYear = LocalDate.now().minusYears(1).getYear();
+
+                                            for(int i = previousYearTransactions.size() - 1; i >= 0; i--) {
+                                                //convert the transactions date String into LocalData
+                                                LocalDate transactionDate = LocalDate.parse(previousYearTransactions.get(i).getDate());
+                                                //compare years
+                                                if(transactionDate.getYear() == perviousYear) {
+                                                    System.out.println(previousYearTransactions.get(i));
+                                                }
+                                            }
                                             break;
-                                            case "5":
+
+                                               case "5":
                                                 System.out.println("Enter Vendor name: ");
                                                 String searchVendor = scanner.nextLine();
 
