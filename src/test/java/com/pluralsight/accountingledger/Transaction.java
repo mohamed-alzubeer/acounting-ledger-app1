@@ -74,7 +74,7 @@ public class Transaction {
                 ", vendor='" + vendor + '\'' +
                 ", amount=" + amount +
                 '}';
-        
+
     }
 
 
