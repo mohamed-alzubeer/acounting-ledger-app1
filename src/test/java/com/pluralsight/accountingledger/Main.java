@@ -16,13 +16,17 @@ public class Main {
         boolean running = true;
         while (running) {
 
-            System.out.println("\n<<<<==========Welcome to Accounting Leadger==========>>>>");
-            System.out.println("===HOME SCREEN===");
-            System.out.println("D) Add Deposit");
-            System.out.println("P) Make Payment");
-            System.out.println("L) Ledger");
-            System.out.println("X) Exit");
+            System.out.println("""
+=============================================================
+                 💰LEDGER ACCOUNTING SYSTEM💰
+=============================================================
+""");            System.out.println("D) Add Deposit ");
+            System.out.println("P) Make Payment ");
+            System.out.println("L) Ledger ");
+            System.out.println("X) Exit ");
             System.out.println("Choose an option: ");
+            System.out.println();
+
 
 
             //I am using switch/case and pass the choice to make the menu dispay everytime
@@ -50,8 +54,7 @@ public class Main {
 
                     FileManger.saveTransaction(deposit);
 
-                    System.out.println("Deposit saved!");
-
+                    System.out.println("✅ Deposit Saved Successfully!");
                     break;
 
                 case "P":
@@ -78,8 +81,11 @@ public class Main {
 
                     FileManger.saveTransaction(payment);
 
-                    System.out.println("Payment saved!");
-
+                    System.out.println("""
+****************************************
+✅ TRANSACTION SAVED SUCCESSFULLY
+****************************************
+""");
 
                     break;
 
@@ -91,13 +97,19 @@ public class Main {
 
                     while (ledgerRunning) {
 
-                        System.out.println("\n=== LEDGER ===");
-                        System.out.println("A) All");
-                        System.out.println("D) Deposits");
-                        System.out.println("P) Payments");
-                        System.out.println("R) Reports");
-                        System.out.println("H) Home");
-                        System.out.print("Choose an option: ");
+                        System.out.println("""
+╔══════════════════════════════════════════════╗
+║              LEDGER HOME MENU               ║
+╠══════════════════════════════════════════════╣
+║  A  ➜  View All Transactions                ║
+║  D  ➜  View Deposits                        ║
+║  P  ➜  View Payments                        ║
+║  R  ➜  Reports                              ║
+║  H  ➜  Return to Home Screen                ║
+╚══════════════════════════════════════════════╝
+""");
+
+                        System.out.print("Select an option: ");
 
                         String ledgerChoice = scanner.nextLine().toUpperCase();
 
@@ -146,14 +158,19 @@ public class Main {
 
                                 boolean reportsRunning = true; // this make the report running if is true and stop/ exit if false
                                 while (reportsRunning) {
-                                    System.out.println("\n=== REPORTS ===");
-                                    System.out.println("1) Month To Date");
-                                    System.out.println("2) Previous Month");
-                                    System.out.println("3) Year To Date");
-                                    System.out.println("4) Previous Year");
-                                    System.out.println("5) Search by Vendor");
-                                    System.out.println("0) Back");
-                                    System.out.print("Choose an option: ");
+                                    System.out.println("""
+╔══════════════════════════════════════════════╗
+║                 REPORT CENTER               ║
+╠══════════════════════════════════════════════╣
+║  1 ➜ Month-To-Date Report                   ║
+║  2 ➜ Previous Month Report                  ║
+║  3 ➜ Year-To-Date Report                    ║
+║  4 ➜ Previous Year Report                   ║
+║  5 ➜ Search Transactions By Vendor          ║
+║                                              ║
+║  0 ➜ Return to Ledger Home                  ║
+╚══════════════════════════════════════════════╝
+""");System.out.print("Select a report option: ");
 
                                     //read the next line
                                     String reportChoice = scanner.nextLine();
@@ -266,8 +283,12 @@ public class Main {
 
                 case "X":
                     running = false; // when running false , exit the program
-                    System.out.println("GodBay!");
-                    break;
+                    System.out.println("""
+=================================================
+Thank you for using Ledger Accounting System
+Created by Mohamed Bilal
+=================================================
+""");                    break;
                 default:
                     System.out.println("Invalid option");
             }
@@ -281,6 +302,3 @@ public class Main {
 }
 
 
-//create a transaction object
-//Transaction t = new Transaction("2023", "10:13:25", "keyboard", "Amazon", -89.50);
-//  System.out.println("Transaction created successfully!");
